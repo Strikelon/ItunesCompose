@@ -2,8 +2,11 @@
 .gradle
 /local.properties
 /.idea*
+/.idea/assetWizardSettings.xml
 .DS_Store
 /build
 /captures
 .externalNativeBuild
 .cxx
+local.properties
+/buildSrc/build/
