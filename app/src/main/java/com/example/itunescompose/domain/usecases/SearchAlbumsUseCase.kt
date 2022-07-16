@@ -11,5 +11,4 @@ class SearchAlbumsUseCase @Inject constructor(
 
     override suspend fun invoke(term: String): Result<List<AlbumInfoDto>> =
         albumRepository.getAlbumsInfoList(term)
-
 }

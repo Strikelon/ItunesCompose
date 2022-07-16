@@ -4,8 +4,10 @@ import com.example.itunescompose.core.coroutines.AppDispatcherProvider
 import com.example.itunescompose.core.coroutines.DispatcherProvider
 import com.example.itunescompose.data.network.datasource.AlbumRemoteDatasource
 import com.example.itunescompose.data.repository.AlbumRepository
+import com.example.itunescompose.domain.usecases.GetAlbumTracksByIdUseCase
 import com.example.itunescompose.domain.usecases.SearchAlbumsUseCase
 import com.example.itunescompose.specs.api.repository.AlbumRepositoryApi
+import com.example.itunescompose.specs.api.usecases.GetAlbumTracksByIdUseCaseApi
 import com.example.itunescompose.specs.api.usecases.SearchAlbumsUseCaseApi
 import dagger.Module
 import dagger.Provides
@@ -37,6 +39,14 @@ class AppModule {
         albumRepository: AlbumRepositoryApi
     ): SearchAlbumsUseCaseApi =
         SearchAlbumsUseCase(
+            albumRepository
+        )
+
+    @Provides
+    fun provideGetAlbumTracksByIdUseCase(
+        albumRepository: AlbumRepositoryApi
+    ): GetAlbumTracksByIdUseCaseApi =
+        GetAlbumTracksByIdUseCase(
             albumRepository
         )
 }
