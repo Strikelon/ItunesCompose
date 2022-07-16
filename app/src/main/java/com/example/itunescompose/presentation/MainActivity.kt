@@ -1,4 +1,4 @@
-package com.example.itunescompose.presentation.main
+package com.example.itunescompose.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
