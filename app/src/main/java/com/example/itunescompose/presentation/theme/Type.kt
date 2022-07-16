@@ -1,4 +1,4 @@
-package com.example.itunescompose.ui.theme
+package com.example.itunescompose.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

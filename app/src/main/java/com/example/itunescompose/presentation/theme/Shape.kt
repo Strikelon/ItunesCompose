@@ -1,4 +1,4 @@
-package com.example.itunescompose.ui.theme
+package com.example.itunescompose.presentation.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

@@ -22,8 +22,15 @@ android {
     }
 
     buildTypes {
+        val API_BASE_URL = "API_BASE_URL"
+        val CONFIG = { k: String -> "\"${project.properties[k]}\"" }
+
+        debug {
+            buildConfigField("String", API_BASE_URL, CONFIG("dev.api.base.url"))
+        }
         release {
             isMinifyEnabled = true
+            buildConfigField("String", API_BASE_URL, CONFIG("prod.api.base.url"))
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
@@ -53,6 +60,7 @@ dependencies {
     implementation(Dependencies.Android.coreKtx)
     implementation(Dependencies.Android.appCompat)
     implementation(Dependencies.Android.material)
+    implementation(Dependencies.Android.multidex)
 
     // compose
     implementation(Dependencies.Compose.ui)
