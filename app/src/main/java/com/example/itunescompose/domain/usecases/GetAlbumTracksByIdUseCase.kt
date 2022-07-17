@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class GetAlbumTracksByIdUseCase @Inject constructor(
     private val albumRepository: AlbumRepositoryApi
-): GetAlbumTracksByIdUseCaseApi {
+) : GetAlbumTracksByIdUseCaseApi {
 
     override suspend fun invoke(id: String): Result<AlbumTrackInfoDto> =
         albumRepository.getAlbumTracksById(id)

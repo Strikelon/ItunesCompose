@@ -1,13 +1,23 @@
 package com.example.itunescompose.presentation.search
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.*
+import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
@@ -25,6 +35,7 @@ import com.example.itunescompose.R
 import com.example.itunescompose.specs.entity.AlbumInfoDto
 import com.example.itunescompose.specs.entity.uistate.SearchScreenContent
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SearchScreen(
     modifier: Modifier = Modifier,
@@ -33,6 +44,7 @@ fun SearchScreen(
 ) {
     val screenState = searchViewModel.uiState.collectAsState()
     val searchScreenContent = screenState.value.searchScreenContent
+    val keyboardController = LocalSoftwareKeyboardController.current
 
     Column(
         modifier = modifier.fillMaxSize(),
@@ -44,7 +56,7 @@ fun SearchScreen(
                 searchViewModel.searchAlbums(searchQuery)
             }
         )
-        when(searchScreenContent) {
+        when (searchScreenContent) {
             is SearchScreenContent.Progress -> {
                 CircularProgressIndicator(
                     modifier = Modifier.padding(
@@ -64,7 +76,10 @@ fun SearchScreen(
             is SearchScreenContent.Albums -> {
                 AlbumList(
                     list = searchScreenContent.albumInfoDtoList,
-                    onClick = { onAlbumSelected(it) }
+                    onClick = {
+                        keyboardController?.hide()
+                        onAlbumSelected(it)
+                    }
                 )
             }
         }
@@ -94,7 +109,8 @@ fun SearchAlbumTextField(
         onValueChange = onValueChange,
         keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
         keyboardActions = KeyboardActions(
-            onDone = {keyboardController?.hide()})
+            onDone = { keyboardController?.hide() }
+        )
     )
 }
 

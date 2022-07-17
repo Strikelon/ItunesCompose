@@ -2,7 +2,8 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
-    id ("dagger.hilt.android.plugin")
+    id("dagger.hilt.android.plugin")
+    id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
 }
 
 android {
@@ -67,7 +68,7 @@ dependencies {
     implementation(Dependencies.Compose.material)
     implementation(Dependencies.Compose.tooling)
 
-    //coil compose images
+    // coil compose images
     implementation(Dependencies.Coil.coilCompose)
 
     // navigation

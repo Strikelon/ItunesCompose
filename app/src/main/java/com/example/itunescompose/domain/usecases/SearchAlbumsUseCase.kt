@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class SearchAlbumsUseCase @Inject constructor(
     private val albumRepository: AlbumRepositoryApi
-): SearchAlbumsUseCaseApi {
+) : SearchAlbumsUseCaseApi {
 
     override suspend fun invoke(term: String): Result<List<AlbumInfoDto>> =
         albumRepository.getAlbumsInfoList(term)

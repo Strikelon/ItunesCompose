@@ -14,7 +14,7 @@ import javax.inject.Inject
 class AlbumRepository @Inject constructor(
     private val albumRemoteDatasource: AlbumRemoteDatasource,
     private val dispatcherProvider: DispatcherProvider
-): AlbumRepositoryApi {
+) : AlbumRepositoryApi {
 
     override suspend fun getAlbumsInfoList(term: String): Result<List<AlbumInfoDto>> =
         withContext(dispatcherProvider.IO) {
