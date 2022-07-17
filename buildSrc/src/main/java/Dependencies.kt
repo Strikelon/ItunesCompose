@@ -18,6 +18,10 @@ object Dependencies {
         const val uiTest = "androidx.compose.ui:ui-test-junit4:$version"
     }
 
+    object Coil {
+        const val coilCompose = "io.coil-kt:coil-compose:2.1.0"
+    }
+
     object Hilt {
         const val version = "2.40.5"
         const val android = "com.google.dagger:hilt-android:$version"

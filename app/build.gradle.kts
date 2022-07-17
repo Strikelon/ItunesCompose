@@ -67,6 +67,9 @@ dependencies {
     implementation(Dependencies.Compose.material)
     implementation(Dependencies.Compose.tooling)
 
+    //coil compose images
+    implementation(Dependencies.Coil.coilCompose)
+
     // navigation
     implementation(Dependencies.Navigation.navigationCompose)
 
