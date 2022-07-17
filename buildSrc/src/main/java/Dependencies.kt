@@ -49,6 +49,7 @@ object Dependencies {
 
     object Coroutines {
         const val coroutinesKotlinx = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2"
+        const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.2"
     }
 
     object OkHttp {

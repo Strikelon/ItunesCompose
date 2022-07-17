@@ -103,7 +103,7 @@ dependencies {
     testImplementation(Dependencies.Test.jUnit)
     androidTestImplementation(Dependencies.Test.androidJUnit)
     androidTestImplementation(Dependencies.Test.espresso)
-
+    testImplementation(Dependencies.Coroutines.coroutinesTest)
     androidTestImplementation(Dependencies.Compose.uiTest)
     debugImplementation(Dependencies.Compose.toolingTest)
 }
